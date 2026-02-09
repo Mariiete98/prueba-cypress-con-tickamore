@@ -1,0 +1,33 @@
+export class Logger {
+    static pasoNumero(numero){
+        const text = `Step # ${numero}`
+        cy.log(text)
+        cy.allure().step(text)
+    }
+
+    static paso(descripcion){
+        const text = `Step - ${descripcion}`
+        cy.log(text)
+        cy.allure().step(text)
+    }
+
+    static verificacion(descripcion){
+        const text = `Verification - ${descripcion}`
+        cy.log(text)
+        cy.allure().step(text)
+    }
+
+    static subPaso(descripcion){
+        const text = `Substep - ${descripcion}`
+        cy.log(text)
+        cy.allure().step(text)
+    }
+
+    static subVerificacion(descripcion){
+        const text = `SubVerification - ${descripcion}`
+        cy.log(text)
+        cy.allure().step(text)
+    }
+
+
+}
