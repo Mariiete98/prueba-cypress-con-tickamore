@@ -8,10 +8,12 @@ export class InicioFunciones{
 
     static clickVisitarAvisoLegal(){
         InicioElementos.ventanaCookies.avisoLegal.click();
+        // force true?
     }
 
     static clickVisitarPolitica(){
         InicioElementos.ventanaCookies.politica.click();
+        // force true?
     }
 
     static clickAceptarTodo(){
@@ -20,35 +22,36 @@ export class InicioFunciones{
     }
     static clickConfigurarCookies(){
         InicioElementos.ventanaCookies.botonConfigurarCookies.click();
+        // force true?
     }
     static verificarSwitchDesactivado(){
-        InicioElementos.ventanaCookies.switchCookiesGoogleAnalytics.should('have.attr', 'aria-checked', 'false');
+        InicioElementos.ventanaCookies.switchCookiesGoogleAnalyticsSinMarcar.should('have.attr', 'aria-checked', 'false');
     }
     static clickSwitchActivar(){
         InicioElementos.ventanaCookies.switchCookiesGoogleAnalyticsSinMarcar.click();
+        // force true?
     }
     static verificarSwitchActivado(elemento){
-         elemento.should('have.attr', 'aria-checked', 'true');
+        elemento.should('have.attr', 'aria-checked', 'true');
     }
     static clickAceptarSeleccionYContinuar(){
-         InicioElementos.ventanaCookies.botonAceptarSeleccionYContinuar.click();
+        InicioElementos.ventanaCookies.botonAceptarSeleccionYContinuar.click();
+        // force true?
     }
-
     static verificarVentanaCookiesCerrada(){
-        InicioElementos.ventanaCookies.ventanaCookies.should('not.be.visible');
+        InicioElementos.ventanaCookies.ventanaVisible.should('not.be.visible');
+        // Por si tarda: cy.get(InicioElementos.ventanaCookies.ventanaVisible, { timeout: 10000 }).should('not.exist');
     }
 
 
+    //Para todos los click:
     static clickElemento(elemento){
         elemento.should('be.visible').click();
         // force true?
         // scrollIntoView si es tapado por algo
     }
 
-
-   
     
-
     // Si aparece ventana de Windows:
     /*
     static verificarX(expectedMessage){
