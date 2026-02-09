@@ -1,1 +1,1 @@
-{"total":1,"items":[{"uid":"08168f6cc7ef32dfbe22d1ff4c91145f","name":"Cookies","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
+{"total":2,"items":[{"uid":"4518548c65c47b7573233059eeee7db0","name":"Aceptar Cookies","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}},{"uid":"c26c89b3c4294f0bd5188aba13d8c0c2","name":"Ver links y Aceptar Cookies","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}

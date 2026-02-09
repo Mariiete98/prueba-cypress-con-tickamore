@@ -1,2 +1,3 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","1401","TEST 1. Probar confirmación de Cookies. Aceptar todo.","","2026-02-09","passed","2026-02-09","","Cookies","",""
+"","730","TEST 1. Probar ver Aviso Legal y Aceptar todo.","","2026-02-09","passed","2026-02-09","","Ver links y Aceptar Cookies","",""
+"","1435","TEST 1. Probar confirmación de Cookies. Aceptar todo.","","2026-02-09","passed","2026-02-09","","Aceptar Cookies","",""

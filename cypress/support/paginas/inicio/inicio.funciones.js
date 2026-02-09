@@ -6,6 +6,14 @@ export class InicioFunciones{
         InicioElementos.ventanaCookies.ventanaVisible.should('be.visible');
     }
 
+    static clickVisitarAvisoLegal(){
+        InicioElementos.ventanaCookies.avisoLegal.click();
+    }
+
+    static clickVisitarPolitica(){
+        InicioElementos.ventanaCookies.politica.click();
+    }
+
     static clickAceptarTodo(){
         InicioElementos.ventanaCookies.botonAceptarTodo.click();
         // force true?
@@ -19,8 +27,8 @@ export class InicioFunciones{
     static clickSwitchActivar(){
         InicioElementos.ventanaCookies.switchCookiesGoogleAnalyticsSinMarcar.click();
     }
-    static verificarSwitchActivado(){
-         InicioElementos.ventanaCookies.switchCookiesGoogleAnalyticsMarcado.should('have.attr', 'aria-checked', 'true');
+    static verificarSwitchActivado(elemento){
+         elemento.should('have.attr', 'aria-checked', 'true');
     }
     static clickAceptarSeleccionYContinuar(){
          InicioElementos.ventanaCookies.botonAceptarSeleccionYContinuar.click();
