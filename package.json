@@ -1,0 +1,33 @@
+{
+  "name": "prueba-mario-con-tickamore",
+  "version": "1.0.0",
+  "description": "Pruebas Cypress Mario. Tickamore.",
+  "main": "index.js",
+  "scripts": {
+    "generar-reporte": "npx allure generate allure-results -o allure-report --clean",
+    "abrir-reporte": "npx allure open",
+    "limpiar-reporte": "npx rimraf ./allure-report && rimraf ./allure-results",
+    "ejecutar-pruebas": "npx cypress run --headed --env allure=true | exit 0",
+    "test": "npm run limpiar-reporte && npm run ejecutar-pruebas && npm run generar-reporte && npm run abrir-reporte"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mariiete98/prueba-cypress-con-tickamore.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Mariiete98/prueba-cypress-con-tickamore/issues"
+  },
+  "homepage": "https://github.com/Mariiete98/prueba-cypress-con-tickamore#readme",
+  "dependencies": {
+    "@shelex/cypress-allure-plugin": "^2.41.2",
+    "allure-commandline": "^2.36.0",
+    "cypress": "^15.10.0"
+  },
+  "devDependencies": {
+    "rimraf": "^6.1.2"
+  }
+}
