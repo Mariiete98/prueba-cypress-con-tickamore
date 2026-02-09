@@ -1,7 +1,7 @@
 export class Logger {
     static pasoNumero(numero){
         const text = `Step # ${numero}`
-        cy.log(text)
+        cy.log(text);
         cy.allure().step(text)
     }
 
@@ -27,6 +27,20 @@ export class Logger {
         const text = `SubVerification - ${descripcion}`
         cy.log(text)
         cy.allure().step(text)
+    }
+
+    
+    static error(descripcion){
+        const text = `${descripcion}`;
+
+        // Log normal
+        cy.log(text);
+
+        // Log en Allure
+        cy.allure().step(text);
+
+        // Que falle el test
+        throw new Error(text);
     }
 
 
