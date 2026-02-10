@@ -1,11 +1,12 @@
-[
-  {
+{
+  "CORRECTO": {
     "user": "Ines",
     "pass": "Iacpos2022-"
   },
 
-  {
+  "INCORRECTO":{
     "user": "Mario",
-    "pass": "Error"
+    "pass": "Mario"
   }
-]
+}
+

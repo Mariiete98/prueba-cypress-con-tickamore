@@ -1,4 +1,4 @@
-export class InicioData{
+export class LoginData{
 
     static get url(){
         return {

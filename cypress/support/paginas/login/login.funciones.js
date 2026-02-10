@@ -62,13 +62,14 @@ export class LoginFunciones{
         //LoginElements.obtenerCampos.username.type(username)
         // falla que a veces inserta y otras no, usar:
         //LoginElements.obtenerCampos.username.invoke('val', username)
-        LoginElements.obtenerCampos.username.should('be.visible').clear().type(username);
+        LoginElementos.obtenerCampos.username.should('be.visible').clear().type(username);
     }
-    static insertarPassword(password){
+    static insertarPassword(){
         //LoginElements.obtenerCampos.password.type(password)
         // falla que a veces inserta y otras no, usar:
         //LoginElements.obtenerCampos.password.invoke('val', password)
-        LoginElements.obtenerCampos.password.should('be.visible').clear().type(password);
+        LoginElementos.obtenerCampos.password.should('be.visible').clear().type('Hola');
+        
     }
     static verificarCampoVacio(botonVacio){
         botonVacio.should('not.be.visible');
