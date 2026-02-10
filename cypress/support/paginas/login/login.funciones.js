@@ -34,6 +34,11 @@ export class LoginFunciones{
         // force true?
     }
 
+
+
+
+
+
     static clickUsuario(){
         LoginElementos.login.campoUsuario.click();
         // force true?
@@ -43,6 +48,9 @@ export class LoginFunciones{
         LoginElementos.login.campoContrasena.click();
         // force true?
     }
+
+
+
     static clickVerContrasena(){
         LoginElementos.login.botonVerContrasenaOculta.click();
         // force true?
@@ -58,27 +66,48 @@ export class LoginFunciones{
 
 
 
-    static insertarUsuario(username){
+    static insertarUsuario(user){
         //LoginElements.obtenerCampos.username.type(username)
         // falla que a veces inserta y otras no, usar:
         //LoginElements.obtenerCampos.username.invoke('val', username)
-        LoginElementos.obtenerCampos.username.should('be.visible').clear().type(username);
+        LoginElementos.login.campoUsuario.should('be.visible').clear().type(user);
     }
-    static insertarPassword(){
+    static insertarPassword(pass){
         //LoginElements.obtenerCampos.password.type(password)
         // falla que a veces inserta y otras no, usar:
         //LoginElements.obtenerCampos.password.invoke('val', password)
-        LoginElementos.obtenerCampos.password.should('be.visible').clear().type('Hola');
+        LoginElementos.login.campoContrasena.should('be.visible').clear().type(pass);
         
     }
-    static verificarCampoVacio(botonVacio){
+
+
+
+
+    static verificarCampoLleno(botonVacio){
         botonVacio.should('not.be.visible');
+    }
+
+    static verificarCampoVacio(botonVacio){
+        botonVacio.should('be.visible');
     }
     
 
     
 
     
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Test Cambiar Contrasena
 
@@ -114,12 +143,14 @@ export class LoginFunciones{
 
     //Para login automático
     static loginCompleto(username, password){
+        /*
         Logger.subStep('Insert username')
         this.insertarUsuario(username)
         Logger.subStep('Insert password')
         this.insertarPassword(password)
         Logger.subStep('Click on login button')
         this.clickIniciarSesion()
+        */
     }
 
 

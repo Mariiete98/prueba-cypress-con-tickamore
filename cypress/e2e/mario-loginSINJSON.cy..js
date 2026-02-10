@@ -8,10 +8,21 @@ import { LoginData } from '../support/paginas/login/login.data';
 
 describe(LoginData.titulos.login, () => {
     
+    // ¿ lo quito ?
+    let url;
+
     beforeEach(() => {
         cy.clearCookies();
         cy.clearLocalStorage();
         
+        // HARDCODEAR CONTRASEÑA, QUE FUNCIONE:
+            // LoginElementos.login.campoContrasena.should('be.visible').clear().type('passdeprueba');
+
+            // o
+
+            // LoginFunciones.insertarPassword('passdeprueba');
+
+        //¿FUNCIONA LA URL?
         cy.fixture('url').then((data) => {
             url = data.url;
         }); 
@@ -19,7 +30,7 @@ describe(LoginData.titulos.login, () => {
     });
 
 
-    it('TEST 3.1. Aceptar Cookies predeterminadas y abrir-cerrar Login', () => {
+    it.only('TEST 3.1. Aceptar Cookies predeterminadas y abrir-cerrar Login', () => {
 
         // Test Cookies correcto:
         Logger.pasoNumero(1);
@@ -62,7 +73,6 @@ describe(LoginData.titulos.login, () => {
    
     it.only('TEST 3.2. Aceptar Cookies predeterminadas y abrir Login. Campo usuario vacío', () => {
 
-
             // Test Cookies correcto:
             Logger.pasoNumero(1);
             Logger.paso('Se carga la URL.');
@@ -101,22 +111,23 @@ describe(LoginData.titulos.login, () => {
             Logger.pasoNumero(6);
             Logger.paso('Contraseña escrita sin Usuario. Click en el campo Contraseña');
             LoginFunciones.clickElemento(LoginElementos.login.campoContrasena);
-            //cy.wait(1000);
+            cy.wait(1000);
 
                 Logger.subPaso('Escribirse Contraseña');
-                //LoginElementos.obtenerCampos.password.should('be.visible').clear().type(passError);
-                //LoginFunciones.insertarPassword(passError);
+
+                //Probar que el elemento campo pass sea visible y .type o .invoke con una de las 2 opciones de arriba
+                
                 cy.wait(1000);
 
                 Logger.subPaso('Salta a campo Usuario');
                 LoginFunciones.clickElemento(LoginElementos.login.campoUsuario);
 
                 Logger.subPaso('Comprueba que no hay símbolo de campo vacío en Contraseña');
-                LoginFunciones.verificarCampoVacio(LoginElementos.login.botonContrasenaVacia);
+                LoginFunciones.verificarCampoLleno(LoginElementos.login.botonContrasenaVacia);
                 Logger.subVerificacion('Se ha escrito la contraseña');
 
                 Logger.subPaso('Comprueba que sí hay símbolo de campo vacío en Usuario');
-                LoginFunciones.verificarCampoVacio(LoginElementos.login.botonContrasenaVacia);
+                LoginFunciones.verificarCampoVacio(LoginElementos.login.botonUsuarioVacio);
                 Logger.subVerificacion('No se ha escrito el Usuario');
 
             Logger.pasoNumero(7);
@@ -124,7 +135,7 @@ describe(LoginData.titulos.login, () => {
             LoginFunciones.clickElemento(LoginElementos.login.botonVerContrasenaOculta);
             cy.wait(1000);
                 Logger.subPaso('Vuelve a enmascarar la Contraseña');
-                LoginFunciones.verificarCampoVacio(LoginElementos.login.botonContrasenaVacia);
+                LoginFunciones.clickElemento(LoginElementos.login.botonOcultarContrasenaDescubierta);
             
             Logger.pasoNumero(8);
             Logger.paso('Intento de inicio de sesión sin respuesta por Usuario vacío');
@@ -139,108 +150,6 @@ describe(LoginData.titulos.login, () => {
             LoginFunciones.clickElemento(LoginElementos.login.bannerParaComprobarCierreVentana);
             
     })
-
-
-    it.only('TEST 3. Aceptar Cookies predeterminadas y abrir Login. Campo usuario vacío', () => {
-
-
-            // Test Cookies correcto:
-            Logger.pasoNumero(1);
-            Logger.paso('Se carga la URL.');
-            cy.visit(url);
-
-            Logger.pasoNumero(2);
-            Logger.paso('Aceptar Cookies.');
-            InicioFunciones.verificarVentanaCookiesAbierta();
-            cy.wait(1000);
-            //InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonAceptarTodo);
-            InicioFunciones.clickAceptarTodo(); 
-            // Ahora funciona por el forced to click
-            InicioFunciones.verificarVentanaCookiesCerrada();
-        
-            Logger.pasoNumero(3);
-            Logger.paso('Abrimos la ventana del Login');
-            LoginFunciones.clickElemento(LoginElementos.login.botonIniciar);
-
-            Logger.pasoNumero(4);
-            Logger.paso('Comprobar carga de ventana Login');
-            LoginFunciones.verificarVentanaLoginAbierta();
-            Logger.verificacion('Se abrió el Login');
-
-            Logger.pasoNumero(5);
-            Logger.paso('Comprobar que carga la ventana Login');
-            LoginFunciones.verificarVentanaConTitulo();
-            Logger.verificacion('Se cargó la ventana');
-            cy.wait(2000);
-
-            Logger.pasoNumero(6);
-            Logger.paso('Click NO escribe en el campo Usuario');
-            LoginFunciones.clickElemento(LoginElementos.login.campoUsuario);
-            cy.wait(1000);
-
-            Logger.pasoNumero(6);
-            Logger.paso('Contraseña escrita sin Usuario. Click en el campo Contraseña');
-            LoginFunciones.clickElemento(LoginElementos.login.campoContrasena);
-            //cy.wait(1000);
-
-                Logger.subPaso('Escribirse Contraseña');
-                //LoginElementos.obtenerCampos.password.should('be.visible').clear().type(passError);
-                //LoginFunciones.insertarPassword();
-                cy.wait(1000);
-
-                Logger.subPaso('Salta a campo Usuario');
-                LoginFunciones.clickElemento(LoginElementos.login.campoUsuario);
-
-                Logger.subPaso('Comprueba que no hay símbolo de campo vacío en Contraseña');
-                LoginFunciones.verificarCampoVacio(LoginElementos.login.botonContrasenaVacia);
-                Logger.subVerificacion('Se ha escrito la contraseña');
-
-                Logger.subPaso('Comprueba que sí hay símbolo de campo vacío en Usuario');
-                LoginFunciones.verificarCampoVacio(LoginElementos.login.botonContrasenaVacia);
-                Logger.subVerificacion('No se ha escrito el Usuario');
-
-            Logger.pasoNumero(7);
-            Logger.paso('Comprueba la Constraseña sin enmascarar');
-            LoginFunciones.clickElemento(LoginElementos.login.botonVerContrasenaOculta);
-            cy.wait(1000);
-                Logger.subPaso('Vuelve a enmascarar la Contraseña');
-                LoginFunciones.verificarCampoVacio(LoginElementos.login.botonContrasenaVacia);
-            
-            Logger.pasoNumero(8);
-            Logger.paso('Intento de inicio de sesión sin respuesta por Usuario vacío');
-            LoginFunciones.clickElemento(LoginElementos.login.botonIniciarSesion);
-            Logger.verificacion('No se inició sesión.');
-            cy.wait(1000);
-
-            LoginFunciones.clickElemento(LoginElementos.login.botonCerrarVentanaLogin);
-            cy.wait(1000);
-            LoginFunciones.verificarVentanaLoginCerrada();
-            cy.wait(2000);
-            LoginFunciones.clickElemento(LoginElementos.login.bannerParaComprobarCierreVentana);
-   
-    })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     it('TEST 3.3. Aceptar Cookies predeterminadas y abrir Login. Campo contraseña vacío', () => {
      
