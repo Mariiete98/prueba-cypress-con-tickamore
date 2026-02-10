@@ -1,4 +1,3 @@
-
 import '@shelex/cypress-allure-plugin';
 import { InicioData } from '../support/paginas/inicio/inicio.data';
 import { Logger } from '../support/utilidades/logger';
@@ -13,18 +12,26 @@ describe(InicioData.titulos.cookies, () => {
         cy.clearLocalStorage();
     });
 
+    const url = "";
+    cy.fixture('url').then((data) => {
+        url = data.url;
+    });
+
+
     it('TEST 1.1. Probar confirmación de Cookies. Aceptar todo.', () => {
         Logger.pasoNumero(1);
         Logger.paso('Se carga la URL.');
-        cy.visit(InicioData.url.inicio);
+        cy.visit(url);
 
         Logger.pasoNumero(2);
         Logger.paso('Aceptar Cookies. Debe aparecer la ventana emergente de Cookies');
         InicioFunciones.verificarVentanaCookiesAbierta();
-        
+        cy.wait(1000);
         Logger.pasoNumero(3);
         Logger.paso('Aceptamos las Cookies predeterminadas');
-        InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonAceptarTodo);
+        //InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonAceptarTodo);
+        InicioFunciones.clickAceptarTodo(); 
+        // Ahora funciona por el forced to click
         
         Logger.pasoNumero(4);
         Logger.paso('Comprobamos que se ha cerrado el recuadro de Cookies');
@@ -39,7 +46,7 @@ describe(InicioData.titulos.cookies, () => {
     it('TEST 1.2. Probar confirmación de Cookies. Configurar Cookies. 1 switch activado. Aceptar todo y continuar', () => {
         Logger.pasoNumero(1);
         Logger.paso('Se carga la URL.');
-        cy.visit(InicioData.url.inicio);
+        cy.visit(url);
 
         Logger.pasoNumero(2);
         Logger.paso('Aceptar Cookies. Debe aparecer la ventana emergente de Cookies');
@@ -73,7 +80,7 @@ describe(InicioData.titulos.cookies, () => {
     it('TEST 1.3. Probar confirmación de Cookies. Configurar Cookies. 2 switch activados. Aceptar todo y continuar', () => {
         Logger.pasoNumero(1);
         Logger.paso('Se carga la URL.');
-        cy.visit(InicioData.url.inicio);
+        cy.visit(url);
 
         Logger.pasoNumero(2);
         Logger.paso('Aceptar Cookies. Debe aparecer la ventana emergente de Cookies');
@@ -89,14 +96,18 @@ describe(InicioData.titulos.cookies, () => {
         InicioFunciones.verificarSwitchActivado(InicioElementos.ventanaCookies.switchCookiesAspNetSessionIdMarcado)
 
         Logger.pasoNumero(5);
+        Logger.paso('Comprobamos que se hace clcik al segundo switch');
+        InicioFunciones.clickElemento(InicioElementos.ventanaCookies.switchCookiesGoogleAnalyticsSinMarcar);
+
+        Logger.pasoNumero(6);
         Logger.paso('Comprobamos que el segundo switch también está activado');
         InicioFunciones.verificarSwitchActivado(InicioElementos.ventanaCookies.switchCookiesGoogleAnalyticsMarcado)
 
-        Logger.pasoNumero(6);
+        Logger.pasoNumero(7);
         Logger.paso('Aceptamos las Cookies predeterminadas');
         InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonAceptarTodo);
 
-        Logger.pasoNumero(7);
+        Logger.pasoNumero(8);
         Logger.paso('Comprobamos que se ha cerrado el recuadro de Cookies');
         InicioFunciones.verificarVentanaCookiesCerrada();
 
@@ -107,7 +118,7 @@ describe(InicioData.titulos.cookies, () => {
     it('TEST 1.4. Probar confirmación de Cookies. Configurar Cookies. 1 switch activado. Aceptar selección y continuar', () => {
         Logger.pasoNumero(1);
         Logger.paso('Se carga la URL.');
-        cy.visit(InicioData.url.inicio);
+        cy.visit(url);
 
         Logger.pasoNumero(2);
         Logger.paso('Aceptar Cookies. Debe aparecer la ventana emergente de Cookies');
@@ -141,7 +152,7 @@ describe(InicioData.titulos.cookies, () => {
     it('TEST 1.5. Probar confirmación de Cookies. Configurar Cookies. 2 switch activados. Aceptar selección y continuar', () => {
         Logger.pasoNumero(1);
         Logger.paso('Se carga la URL.');
-        cy.visit(InicioData.url.inicio);
+        cy.visit(url);
         Logger.verificacion('Se entró en TickAmore')
 
         Logger.pasoNumero(2);
@@ -161,16 +172,20 @@ describe(InicioData.titulos.cookies, () => {
         Logger.verificacion('Está activado switch 1')
 
         Logger.pasoNumero(5);
+        Logger.paso('Comprobamos que se hace clcik al segundo switch');
+        InicioFunciones.clickElemento(InicioElementos.ventanaCookies.switchCookiesGoogleAnalyticsSinMarcar);
+
+        Logger.pasoNumero(6);
         Logger.paso('Comprobamos que el segundo switch también está activado');
         InicioFunciones.verificarSwitchActivado(InicioElementos.ventanaCookies.switchCookiesGoogleAnalyticsMarcado)
         Logger.verificacion('Está activado switch 2')
 
-        Logger.pasoNumero(6);
+        Logger.pasoNumero(7);
         Logger.paso('Aceptación Selectiva (pero están ambos switch seleccionados');
         InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonAceptarSeleccionYContinuar);
         Logger.verificacion('Se aceptaron las Cookies');
 
-        Logger.pasoNumero(7);
+        Logger.pasoNumero(8);
         Logger.paso('Comprobamos que se ha cerrado el recuadro de Cookies');
         InicioFunciones.verificarVentanaCookiesCerrada();
         Logger.verificacion('Se cerró las Cookies')

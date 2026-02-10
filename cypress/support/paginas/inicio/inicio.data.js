@@ -2,19 +2,21 @@ export class InicioData{
 
     static get url(){
         return {
+
+            // En url.json
+            /*
             get inicio() {
                 return 'https://tickamore.webventa.iacposdes.com/tickamore';
-            },
+            },*/
 
             get avisoLegal() {
-                return ...';
+                return 'https://www.realescuela.org/aviso-legal/';
             },
 
             get politica() {
-                return ...';
-            },
+                return 'https://www.realescuela.org/politica-de-cookies/';
+            }
           
-         
         }
     }
 

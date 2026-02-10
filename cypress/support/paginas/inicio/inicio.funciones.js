@@ -2,18 +2,10 @@ import { InicioElementos } from "./inicio.elementos";
 
 export class InicioFunciones{
 
+    // Test Cookies 
+
     static verificarVentanaCookiesAbierta(){
         InicioElementos.ventanaCookies.ventanaVisible.should('be.visible');
-    }
-
-    static clickVisitarAvisoLegal(){
-        InicioElementos.ventanaCookies.avisoLegal.click();
-        // force true?
-    }
-
-    static clickVisitarPolitica(){
-        InicioElementos.ventanaCookies.politica.click();
-        // force true?
     }
 
     static clickAceptarTodo(){
@@ -43,6 +35,19 @@ export class InicioFunciones{
         // Por si tarda: cy.get(InicioElementos.ventanaCookies.ventanaVisible, { timeout: 10000 }).should('not.exist');
     }
 
+    // Test Políticas y Aviso Legal
+
+    static clickVisitarAvisoLegal(){
+        InicioElementos.ventanaCookies.avisoLegal.click();
+        // force true?
+    }
+
+    static clickVisitarPolitica(){
+        InicioElementos.ventanaCookies.politica.click();
+        // force true?
+    }
+
+    
 
     //Para todos los click:
     static clickElemento(elemento){
