@@ -1,3 +1,4 @@
+import { Logger } from "../../utilidades/logger";
 import { LoginElementos } from "./login.elementos";
 
 
@@ -22,6 +23,17 @@ export class LoginFunciones{
         LoginElementos.login.botonCerrarVentanaLogin.click();
         // force true?
     }
+
+    static verificarVentanaLoginCerrada(){
+        LoginElementos.login.ventanaLoginVisible.should('not.be.visible');
+        // Si tarda usar { timeout: 10000 }).should('not.exist');
+    }
+
+    static clickBannerVerificaCierre(){
+        LoginElementos.login.bannerParaComprobarCierreVentana.click();
+        // force true?
+    }
+
     static clickUsuario(){
         LoginElementos.login.campoUsuario.click();
         // force true?
@@ -46,6 +58,24 @@ export class LoginFunciones{
 
 
 
+    static insertarUsuario(username){
+        //LoginElements.obtenerCampos.username.type(username)
+        // falla que a veces inserta y otras no, usar:
+        //LoginElements.obtenerCampos.username.invoke('val', username)
+        LoginElements.obtenerCampos.username.should('be.visible').clear().type(username);
+    }
+    static insertarPassword(password){
+        //LoginElements.obtenerCampos.password.type(password)
+        // falla que a veces inserta y otras no, usar:
+        //LoginElements.obtenerCampos.password.invoke('val', password)
+        LoginElements.obtenerCampos.password.should('be.visible').clear().type(password);
+    }
+    static verificarCampoVacio(botonVacio){
+        botonVacio.should('not.be.visible');
+    }
+    
+
+    
 
     
 
@@ -80,6 +110,17 @@ export class LoginFunciones{
         // force true?
         // scrollIntoView si es tapado por algo
     }
+
+    //Para login automático
+    static loginCompleto(username, password){
+        Logger.subStep('Insert username')
+        this.insertarUsuario(username)
+        Logger.subStep('Insert password')
+        this.insertarPassword(password)
+        Logger.subStep('Click on login button')
+        this.clickIniciarSesion()
+    }
+
 
     
     // Si aparece ventana de Windows:

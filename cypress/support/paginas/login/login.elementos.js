@@ -14,13 +14,18 @@ export class LoginElementos{
                 return cy.get('div#login .col-md-6.col-sm-12');
             },
 
+            get bannerParaComprobarCierreVentana() {
+                return cy.get('div.banner-container.banner');
+            },
+
             get tituloVentanaLogin() {
                 return cy.contains('h5.login-window-title', 'Iniciar Sesión');
             },
 
             get botonCerrarVentanaLogin() {
-                return cy.get('button[aria-label="Cerrar"].');
-                // .mat-mdc-tooltip-trigger.btn-close
+                return cy.contains('h5.login-window-title', 'Iniciar Sesión').closest('div.modal-header.border-0').find('button.btn-close[aria-label="Cerrar"]') 
+                // return cy.get('button[aria-label="Cerrar"]');  Mal porque seleciona más de 1
+                // .mat-mdc-tooltip-trigger.btn-close  Mal porque seleciona más de 1
             },
 
             get campoUsuario() {
