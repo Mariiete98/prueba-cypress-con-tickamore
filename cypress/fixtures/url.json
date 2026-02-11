@@ -1,7 +1,8 @@
 {
     "url": "https://tickamore.webventa.iacposdes.com/tickamore",
 
-    "apiLogin": "https://apides.apiacpos.com/WEBAPICoreBridge/api/Autorizacion/Clientes/Login"
-    
+    "apiLogin": "https://apides.apiacpos.com/WEBAPICoreBridge/api/Autorizacion/Clientes/Login",
 
+    "apiLogout": "https://apides.apiacpos.com/WEBAPICoreBridge/api/Autorizacion/Clientes/Logout"
+    
 }

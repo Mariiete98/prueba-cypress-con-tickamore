@@ -108,6 +108,15 @@ export class LoginFunciones{
     }
 
 
+    static verificarDesplegableAbierto(desplegable){
+        desplegable.should('be.visible');
+    }
+
+    static verificarDesplegableCerrado(desplegable){
+        desplegable.should('not.exist');
+    }
+
+
     
 
     

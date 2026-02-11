@@ -50,7 +50,7 @@ export class LoginElementos{
             get botonVerContrasenaOculta() {
                  return cy.get('div.mat-mdc-form-field-flex.ng-tns-c1205077789-1 > div.mat-mdc-form-field-icon-suffix.ng-tns-c1205077789-1.ng-star-inserted');
                 // return cy.contains('matt-icon.mat-icon.notranslate.material-icons.mat-ligature-font.mat-icon-no-color', 'visibility_off');
-                // return cy.get('button[aria-label="Mostrar contraseña"]'); Falla, obtengo 6
+                // return cy.get('button[aria-label="Mostrar contraseña"]'); Falla, porque selecciona más de 1
                 // return cy.get('button[aria-pressed="true"]');
                 
             },
@@ -73,6 +73,14 @@ export class LoginElementos{
             get botonConNombreUsuario() {
                 return cy.get('ul.navbar-nav.ms-auto > li.nav-item.separator.idioma.dropdown.custom-focus.ng-star-inserted > button#navbarDropdown')
                 // return cy.get('i.bi.bi-person-fill.size-cesta text-black') No funciona
+            },
+
+            get desplegableUsuario() {
+                return cy.get('ul.dropdown-menu.dropdown-menu-end.show')
+            },
+
+            get botonSalir() {
+                return cy.get('ul.dropdown-menu.dropdown-menu-end.show button.btn')
             },
 
 
