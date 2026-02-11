@@ -98,6 +98,16 @@ export class LoginFunciones{
     }
     */
 
+    static verificarMensajeErrorAbierto(mensajeError) {
+        mensajeError.should('exist').should('be.visible');
+    }
+
+    static verificarMensajeErrorCerrado(mensajeError) {
+        mensajeError.should('not.exist');
+        // sin not.be.visible, porque como ya no existe, no hay comprobacion
+    }
+
+
     
 
     

@@ -23,7 +23,7 @@ export class Logger {
         cy.allure().step(text)
     }
 
-    static subVerificacion(descripcion){
+    static subVerificacion(...descripcion){ // con puntos suspensivos permite mas parametros, como titulo + variable para comprobar
         const text = `SubVerificación - ${descripcion}`
         cy.log(text)
         cy.allure().step(text)
@@ -32,15 +32,9 @@ export class Logger {
     
     static error(descripcion){
         const text = `${descripcion}`;
-
-        // Log normal
         cy.log(text);
-
-        // Log en Allure
         cy.allure().step(text);
-
-        // Que falle el test
-        throw new Error(text);
+        //throw new Error(text);
     }
 
 

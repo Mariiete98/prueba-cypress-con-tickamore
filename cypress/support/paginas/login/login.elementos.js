@@ -68,16 +68,20 @@ export class LoginElementos{
             },
 
 
-
-            get ventanaErrorLogin() {
-                return cy.get('div#toast-container > div');
-            },
+            // no encuentro nombre usuario en ::before , busco solo el botón para click
 
             get botonConNombreUsuario() {
                 return cy.get('ul.navbar-nav.ms-auto > li.nav-item.separator.idioma.dropdown.custom-focus.ng-star-inserted > button#navbarDropdown')
                 // return cy.get('i.bi.bi-person-fill.size-cesta text-black') No funciona
-                // el nombre del usuario está en un ::before...
             },
+
+
+            
+
+            get ventanaErrorLogin() {
+                return cy.get('div#toast-container > div', { timeout: 3000 });
+            },
+
 
 
 
