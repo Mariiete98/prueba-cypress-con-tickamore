@@ -48,8 +48,11 @@ export class LoginElementos{
             },
 
             get botonVerContrasenaOculta() {
-                return cy.get('button[aria-label="Mostrar contraseña"]');
+                 return cy.get('div.mat-mdc-form-field-flex.ng-tns-c1205077789-1 > div.mat-mdc-form-field-icon-suffix.ng-tns-c1205077789-1.ng-star-inserted');
+                // return cy.contains('matt-icon.mat-icon.notranslate.material-icons.mat-ligature-font.mat-icon-no-color', 'visibility_off');
+                // return cy.get('button[aria-label="Mostrar contraseña"]'); Falla, obtengo 6
                 // return cy.get('button[aria-pressed="true"]');
+                
             },
 
             get botonOcultarContrasenaDescubierta() {
@@ -64,14 +67,24 @@ export class LoginElementos{
                 
             },
 
+
+
             get ventanaErrorLogin() {
                 return cy.get('div#toast-container > div');
             },
 
-            get nombreUsuario() {
-                return cy.get('i.bi.bi-person-fill.size-cesta text-black')
+            get botonConNombreUsuario() {
+                return cy.get('ul.navbar-nav.ms-auto > li.nav-item.separator.idioma.dropdown.custom-focus.ng-star-inserted > button#navbarDropdown')
+                // return cy.get('i.bi.bi-person-fill.size-cesta text-black') No funciona
                 // el nombre del usuario está en un ::before...
             },
+
+
+
+
+
+
+
 
 
             // Test Cambio Contraseña

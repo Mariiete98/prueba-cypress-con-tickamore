@@ -84,13 +84,19 @@ export class LoginFunciones{
 
 
     static verificarCampoLleno(botonVacio){
-        botonVacio.should('not.be.visible');
+        botonVacio.should('not.exist');
     }
 
     static verificarCampoVacio(botonVacio){
         botonVacio.should('be.visible');
     }
-    
+
+
+    /* :: after?
+    static verificarNombreMenu(botonMenu){
+        botonMenu.should('be.visible');
+    }
+    */
 
     
 
