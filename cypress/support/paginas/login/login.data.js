@@ -13,7 +13,7 @@ export class LoginData{
     static get titulos(){
         return {
             login: "Login",
-            loginAPI: "Login con Endpoints",
+            loginAPI: "Login y Logout con Endpoints",
         };
     }
 

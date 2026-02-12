@@ -10,6 +10,7 @@
     "limpiar-reporte": "npx rimraf ./allure-report && rimraf ./allure-results",
     "ejecutar-pruebas-open": "npx cypress open --browser chrome --env allure=true",
     "ejecutar-pruebas-run": "npx cypress run --browser chrome --headed --env allure=true",
+    
     "test1": "npm run limpiar-reporte && npm run ejecutar-pruebas-open",
     "test2": "npm run limpiar-reporte && npm run ejecutar-pruebas-run"
   },
