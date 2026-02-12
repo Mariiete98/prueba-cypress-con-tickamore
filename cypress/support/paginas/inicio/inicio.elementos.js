@@ -6,13 +6,21 @@ export class InicioElementos{
             // Test Cookies
 
             get ventanaVisible() {
-                return cy.get('#cookies .modal-dialog.modal-lg');
+                return 'div#cookies .modal-dialog.modal-lg'
+                //return cy.get('#cookies .modal-dialog.modal-lg', { timeout: 10000 });
+                //return cy.get('#cookies .modal-dialog.modal-lg');
             },
-            get botonAceptarTodo() {
+
+            modal: 'div.modal-body',
+
+            botonAceptarTodo:  'button.btn.btn-custom-primary',
+
+            /*get botonAceptarTodo() {
                 //return cy.get('button.btn.btn-custom-primary').contains('Aceptar todo y continuar');
                 //Con el hijo también funciona:
-                return cy.get('.modal-footer > .btn-custom-primary').contains('Aceptar todo y continuar');
-            },
+                return cy.get('button.btn.btn-custom-primary').contains('Aceptar todo y continuar');
+            },*/
+
             get botonConfigurarCookies() {
                 return cy.get('button.btn.btn-outline-secondary.ng-star-inserted').contains('Configurar cookies');
             },
@@ -38,7 +46,18 @@ export class InicioElementos{
                 //return cy.contains('a', 'Política de cookies');   -- No funciona, selecciona del footer
                 //Con el hijo funciona:
                 return cy.get('.modal-body > *').contains('Política de cookies');
-            }
+            },
+
+            
+            
+            
+            
+
+
+
+
+
+
 
         }
     }

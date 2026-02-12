@@ -3,6 +3,7 @@ import { InicioData } from '../support/paginas/inicio/inicio.data';
 import { Logger } from '../support/utilidades/logger';
 import { InicioFunciones } from '../support/paginas/inicio/inicio.funciones';
 import { InicioElementos } from '../support/paginas/inicio/inicio.elementos';
+import { LoginFunciones } from '../support/paginas/login/login.funciones';
 
 
 describe(InicioData.titulos.cookies, () => {
@@ -18,32 +19,30 @@ describe(InicioData.titulos.cookies, () => {
     });
 
 
-    it('TEST 1.1. Probar confirmación de Cookies. Aceptar todo.', () => {
+    it.only('TEST 1.1. Probar confirmación de Cookies. Aceptar todo.', () => {
         Logger.pasoNumero(1);
         Logger.paso('Se carga la URL.');
         cy.visit(url);
-
         Logger.pasoNumero(2);
         Logger.paso('Aceptar Cookies. Debe aparecer la ventana emergente de Cookies');
         InicioFunciones.verificarVentanaCookiesAbierta();
-        cy.wait(1000);
+   
         Logger.pasoNumero(3);
+        InicioFunciones.verificarModalCargado();
+        cy.wait(1000) // CON WAIT SI QUE FUNCIONA
         Logger.paso('Aceptamos las Cookies predeterminadas');
-        //InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonAceptarTodo);
         InicioFunciones.clickAceptarTodo(); 
         // Ahora funciona por el forced to click
         
         Logger.pasoNumero(4);
         Logger.paso('Comprobamos que se ha cerrado el recuadro de Cookies');
         InicioFunciones.verificarVentanaCookiesCerrada();
-        // cy.wait(2000)
-        // Es mejor timeout
 
         //Logger.error('Error al verificar la ventana de cookies');
     })
 
 
-    it('TEST 1.2. Probar confirmación de Cookies. Configurar Cookies. 1 switch activado. Aceptar todo y continuar', () => {
+    it.only('TEST 1.2. Probar confirmación de Cookies. Configurar Cookies. 1 switch activado. Aceptar todo y continuar', () => {
         Logger.pasoNumero(1);
         Logger.paso('Se carga la URL.');
         cy.visit(url);
@@ -51,10 +50,10 @@ describe(InicioData.titulos.cookies, () => {
         Logger.pasoNumero(2);
         Logger.paso('Aceptar Cookies. Debe aparecer la ventana emergente de Cookies');
         InicioFunciones.verificarVentanaCookiesAbierta();
-
+        
         Logger.pasoNumero(3);
         Logger.paso('Entramos en Configurar Cookies');
-        InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonConfigurarCookies);
+        InicioFunciones.clickConfigurarCookies();
         //cy.wait(2000)
         // Es mejor timeout
 
@@ -65,11 +64,10 @@ describe(InicioData.titulos.cookies, () => {
         Logger.pasoNumero(5);
         Logger.paso('Comprobamos que el segundo switch está desactivado');
         InicioFunciones.verificarSwitchDesactivado();
-
+        cy.wait(1000) // CON WAIT SI QUE FUNCIONA
         Logger.pasoNumero(6);
         Logger.paso('Aceptamos las Cookies predeterminadas');
-        InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonAceptarTodo);
-
+        InicioFunciones.clickAceptarTodo(); 
         Logger.pasoNumero(7);
         Logger.paso('Comprobamos que se ha cerrado el recuadro de Cookies');
         InicioFunciones.verificarVentanaCookiesCerrada();
@@ -81,6 +79,7 @@ describe(InicioData.titulos.cookies, () => {
         Logger.pasoNumero(1);
         Logger.paso('Se carga la URL.');
         cy.visit(url);
+        //cy.wait(2000)
 
         Logger.pasoNumero(2);
         Logger.paso('Aceptar Cookies. Debe aparecer la ventana emergente de Cookies');
@@ -88,7 +87,7 @@ describe(InicioData.titulos.cookies, () => {
 
         Logger.pasoNumero(3);
         Logger.paso('Entramos en Configurar Cookies');
-        InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonConfigurarCookies);
+        InicioFunciones.clickConfigurarCookies();
         //cy.wait(2000)
 
         Logger.pasoNumero(4);
@@ -97,15 +96,15 @@ describe(InicioData.titulos.cookies, () => {
 
         Logger.pasoNumero(5);
         Logger.paso('Comprobamos que se hace clcik al segundo switch');
-        InicioFunciones.clickElemento(InicioElementos.ventanaCookies.switchCookiesGoogleAnalyticsSinMarcar);
+        InicioFunciones.clickSwitchActivar(InicioElementos.ventanaCookies.switchCookiesGoogleAnalyticsSinMarcar);
 
         Logger.pasoNumero(6);
         Logger.paso('Comprobamos que el segundo switch también está activado');
         InicioFunciones.verificarSwitchActivado(InicioElementos.ventanaCookies.switchCookiesGoogleAnalyticsMarcado)
-
+        cy.wait(1000) // CON WAIT SI QUE FUNCIONA
         Logger.pasoNumero(7);
         Logger.paso('Aceptamos las Cookies predeterminadas');
-        InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonAceptarTodo);
+        InicioFunciones.clickAceptarTodo(); 
 
         Logger.pasoNumero(8);
         Logger.paso('Comprobamos que se ha cerrado el recuadro de Cookies');
@@ -126,7 +125,7 @@ describe(InicioData.titulos.cookies, () => {
 
         Logger.pasoNumero(3);
         Logger.paso('Entramos en Configurar Cookies');
-        InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonConfigurarCookies);
+        InicioFunciones.clickConfigurarCookies();
         //cy.wait(2000);
 
         Logger.pasoNumero(4);
@@ -136,11 +135,11 @@ describe(InicioData.titulos.cookies, () => {
         Logger.pasoNumero(5);
         Logger.paso('Comprobamos que el segundo switch está desactivado');
         InicioFunciones.verificarSwitchDesactivado();
-        cy.wait(500);
+        //cy.wait(500);
 
         Logger.pasoNumero(6);
         Logger.paso('Aceptación Selectiva (sólo está seleccionado el primer switch automáticamente');
-        InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonAceptarSeleccionYContinuar);
+        InicioFunciones.clickAceptarSeleccionYContinuar();
 
         Logger.pasoNumero(7);
         Logger.paso('Comprobamos que se ha cerrado el recuadro de Cookies');
@@ -163,7 +162,7 @@ describe(InicioData.titulos.cookies, () => {
 
         Logger.pasoNumero(3);
         Logger.paso('Entramos en Configurar Cookies');
-        InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonConfigurarCookies);
+        InicioFunciones.clickConfigurarCookies();
         Logger.verificacion('Se entró en Configurar Cookies')
         //cy.wait(2000);
 
@@ -173,8 +172,8 @@ describe(InicioData.titulos.cookies, () => {
         Logger.verificacion('Está activado switch 1')
 
         Logger.pasoNumero(5);
-        Logger.paso('Comprobamos que se hace clcik al segundo switch');
-        InicioFunciones.clickElemento(InicioElementos.ventanaCookies.switchCookiesGoogleAnalyticsSinMarcar);
+        Logger.paso('Comprobamos que se hace click al segundo switch');
+        InicioFunciones.clickSwitchActivar(InicioElementos.ventanaCookies.switchCookiesGoogleAnalyticsSinMarcar);
 
         Logger.pasoNumero(6);
         Logger.paso('Comprobamos que el segundo switch también está activado');
@@ -183,7 +182,7 @@ describe(InicioData.titulos.cookies, () => {
 
         Logger.pasoNumero(7);
         Logger.paso('Aceptación Selectiva (pero están ambos switch seleccionados');
-        InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonAceptarSeleccionYContinuar);
+        InicioFunciones.clickAceptarSeleccionYContinuar();
         Logger.verificacion('Se aceptaron las Cookies');
 
         Logger.pasoNumero(8);

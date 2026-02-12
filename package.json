@@ -12,7 +12,11 @@
     "ejecutar-pruebas-run": "npx cypress run --browser chrome --headed --env allure=true",
     
     "test1": "npm run limpiar-reporte && npm run ejecutar-pruebas-open",
-    "test2": "npm run limpiar-reporte && npm run ejecutar-pruebas-run"
+    "test2": "npm run limpiar-reporte && npm run ejecutar-pruebas-run",
+
+    "testAzure": "npm run limpiar-reporte && npx cypress run --env allure=true",
+    "reporteAzure": "npx allure generate allure-results -o allure-report --clean"
+
   },
   "repository": {
     "type": "git",

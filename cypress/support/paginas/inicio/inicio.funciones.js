@@ -5,12 +5,19 @@ export class InicioFunciones{
     // Test Cookies 
 
     static verificarVentanaCookiesAbierta(){
-        InicioElementos.ventanaCookies.ventanaVisible.should('be.visible');
+        cy.get(InicioElementos.ventanaCookies.ventanaVisible).should('be.visible');
+    }
+
+    static verificarModalCargado(){
+        cy.contains(InicioElementos.ventanaCookies.modal, 'Utilizamos cookies propias y opcionalmente').should('be.visible');;
+    
     }
 
     static clickAceptarTodo(){
-        InicioElementos.ventanaCookies.botonAceptarTodo.click();
+        //InicioElementos.ventanaCookies.botonAceptarTodo.should('be.visible').click({ force: true });
+        //InicioElementos.ventanaCookies.botonAceptarTodo.should('be.visible').click({ force: true });
         // force true?
+        cy.get(InicioElementos.ventanaCookies.botonAceptarTodo).contains('Aceptar todo y continuar').should('be.visible').click({ force: true }); 
     }
     static clickConfigurarCookies(){
         InicioElementos.ventanaCookies.botonConfigurarCookies.click();
@@ -31,8 +38,8 @@ export class InicioFunciones{
         // force true?
     }
     static verificarVentanaCookiesCerrada(){
-        InicioElementos.ventanaCookies.ventanaVisible.should('not.be.visible');
-        // Por si tarda: cy.get(InicioElementos.ventanaCookies.ventanaVisible, { timeout: 10000 }).should('not.exist');
+        //InicioElementos.ventanaCookies.ventanaVisible.should('not.be.visible');
+        cy.get(InicioElementos.ventanaCookies.ventanaVisible).should('not.be.visible'); // Por si tarda
     }
 
     // Test Políticas y Aviso Legal
@@ -48,13 +55,13 @@ export class InicioFunciones{
     }
 
     
-
+    /*
     //Para todos los click:
     static clickElemento(elemento){
-        elemento.should('be.visible').click();
-        // force true?
+        elemento.should('be.visible').click({ force: true });
+        // elemento.should('be.visible').click();
         // scrollIntoView si es tapado por algo
-    }
+    }+/
 
     
     // Si aparece ventana de Windows:

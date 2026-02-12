@@ -56,7 +56,7 @@ describe(LoginData.titulos.login, () => {
        
         Logger.pasoNumero(3);
         Logger.paso('Abrimos la ventana del Login');
-        LoginFunciones.clickElemento(LoginElementos.login.botonIniciar);
+        LoginFunciones.clickAbrirLogin();
 
         Logger.pasoNumero(4);
         Logger.paso('Comprobar carga de ventana Login');
