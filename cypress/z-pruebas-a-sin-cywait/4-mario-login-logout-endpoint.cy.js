@@ -51,7 +51,7 @@ describe(LoginData.titulos.loginAPI, () => {
             Logger.pasoNumero(2);
             Logger.paso('Aceptar Cookies.');
             InicioFunciones.verificarVentanaCookiesAbierta();
-            cy.wait(1000);
+            
             //InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonAceptarTodo);
             InicioFunciones.clickAceptarTodo(); 
             // Ahora funciona por el forced to click
@@ -70,7 +70,7 @@ describe(LoginData.titulos.loginAPI, () => {
             Logger.paso('Comprobar que carga la ventana Login');
             LoginFunciones.verificarVentanaConTitulo();
             Logger.verificacion('Se cargó la ventana');
-            cy.wait(2000);
+            
 
             Logger.pasoNumero(6);
             Logger.paso('Usuario y Contraseña completos. Click en Usuario');
@@ -180,7 +180,7 @@ describe(LoginData.titulos.loginAPI, () => {
             Logger.pasoNumero(2);
             Logger.paso('Aceptar Cookies.');
             InicioFunciones.verificarVentanaCookiesAbierta();
-            cy.wait(1000);
+            
             //InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonAceptarTodo);
             InicioFunciones.clickAceptarTodo(); 
             // Ahora funciona por el forced to click
@@ -199,7 +199,7 @@ describe(LoginData.titulos.loginAPI, () => {
             Logger.paso('Comprobar que carga la ventana Login');
             LoginFunciones.verificarVentanaConTitulo();
             Logger.verificacion('Se cargó la ventana');
-            cy.wait(1000);
+            
 
             Logger.pasoNumero(6);
             Logger.paso('Usuario y Contraseña completos. Click en Usuario');
@@ -312,9 +312,9 @@ describe(LoginData.titulos.loginAPI, () => {
 
                             LoginFunciones.clickElemento(LoginElementos.login.botonIniciar);
                             LoginFunciones.verificarDesplegableCerrado(LoginElementos.login.desplegableUsuario);
-                            cy.wait(2000);
+                            
                             LoginFunciones.clickCerrarVentana();
-                            cy.wait(2000);
+                            
 
                             Logger.subVerificacion('Sesión cerrada')
                             
@@ -350,7 +350,7 @@ describe(LoginData.titulos.loginAPI, () => {
             Logger.pasoNumero(2);
             Logger.paso('Aceptar Cookies.');
             InicioFunciones.verificarVentanaCookiesAbierta();
-            cy.wait(1000);
+            
             //InicioFunciones.clickElemento(InicioElementos.ventanaCookies.botonAceptarTodo);
             InicioFunciones.clickAceptarTodo(); 
             // Ahora funciona por el forced to click
@@ -369,7 +369,7 @@ describe(LoginData.titulos.loginAPI, () => {
             Logger.paso('Comprobar que carga la ventana Login');
             LoginFunciones.verificarVentanaConTitulo();
             Logger.verificacion('Se cargó la ventana');
-            cy.wait(2000);
+            
 
             Logger.pasoNumero(6);
             Logger.paso('Usuario y Contraseña completos. Click en Usuario');
@@ -454,7 +454,7 @@ describe(LoginData.titulos.loginAPI, () => {
                     Logger.paso('Comprobar que se salta el mensaje de error')
                     LoginFunciones.verificarMensajeErrorAbierto(LoginElementos.login.ventanaErrorLogin);
                     Logger.verificacion('Saltó el mensaje de error.');
-                    cy.wait(6000);
+                    
 
                     Logger.pasoNumero(12);
                     Logger.paso('Cerrar ventana Login');
@@ -469,7 +469,7 @@ describe(LoginData.titulos.loginAPI, () => {
 
                             Logger.subPaso('Comprobar que se cerró la ventana');
                             LoginFunciones.verificarVentanaLoginCerrada();
-                            cy.wait(2000);
+                            
                             LoginFunciones.clickElemento(LoginElementos.login.bannerParaComprobarCierreVentana);
                             Logger.verificacion('Se cerró la ventana');
 

@@ -11,7 +11,6 @@ describe(LoginData.titulos.login, () => {
 
     // CON JSON SIN HARDCODEAR
     let url;
-    let endpointLogin;
 
     let usuarioCorrecto;
     let contrasenaCorrecta;
@@ -24,7 +23,6 @@ describe(LoginData.titulos.login, () => {
 
         cy.fixture('url').then((data) => {
             url = data.url;
-            endpointLogin = data.apiLogin;
         }); 
 
         cy.fixture('login').then((dataLogin) => {
@@ -470,12 +468,12 @@ describe(LoginData.titulos.login, () => {
 
             
             Logger.subVerificacion('Login incorrecto');
-            Logger.pasoNumero(11)
+            Logger.pasoNumero(9)
             Logger.paso('Comprobar que se salta el mensaje de error')
             LoginFunciones.verificarMensajeErrorAbierto(LoginElementos.login.ventanaErrorLogin);
             Logger.verificacion('Saltó el mensaje de error.');
 
-            Logger.pasoNumero(12);
+            Logger.pasoNumero(10);
             Logger.paso('Cerrar ventana Login');
 
                     Logger.subPaso('Comprobar que desaparece mensaje de error de Login porque se solapa')
